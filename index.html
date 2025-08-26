@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stray Cat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        #instructions-container {
+            display: flex;
+        }
+
+        .common-container {
+            background: linear-gradient(145deg, #2c3e50, #1a252f);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            color: #ecf0f1;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #instructions {
+            border: 2px solid #1a252f;
+        }
+
+        #game-over {
+            border: 2px solid #f50c04;
+        }
+
+        .common-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        #instructions h2 {
+            font-style: italic;
+            font-family: 'Roboto'
+        }
+
+        #game-over h2 {
+            color: #f50c04;
+        }
+
+        #days {
+            font-weight: bold;
+            color: #f50c04;
+            font-size: 1.4rem;
+        }
+
+        button {
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px #00000066;
+        }
+
+        #play-button {
+            background: linear-gradient(to bottom, #07dd24, #02aa42);
+        }
+
+        #restart-button {
+            background: linear-gradient(to bottom, #e74c3c, #f50c04);
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-over-container" class="overlay-container">
+        <div id="game-over" class="common-container">
+            <h2>Game Over</h2>
+            <p>You survived <span id="days"></span> days as a stray cat!</p>
+            <button id="restart-button">Try Again</button>
+        </div>
+    </div>
+    <div id="instructions-container" class="overlay-container">
+        <div id="instructions" class="common-container">
+            <h2>STRAY CAT</h2>
+            Use arrow keys or AD keys to move, press SHIFT to run.<br>
+
+            Avoid the rain, catch the mice in order to survive!
+            </p>
+            <button id="play-button">Play!</button>
+
+        </div>
+    </div>
+    <canvas id="c"></canvas>
+    <script src="script.js"></script>
+</body>
+
+</html>
